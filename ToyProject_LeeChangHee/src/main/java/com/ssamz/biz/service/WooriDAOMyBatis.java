@@ -18,25 +18,19 @@ public class WooriDAOMyBatis  {
 	
 	// 이체하기
 	public void transfer(BankVO vo) {
+//		try {
+//			
+//		} catch (Exception e) {
+//			System.out.println("이걸 우째 이체하라고오?");
+//		}
 		System.out.println("===> MyBatis 기반으로 transfer() 기능 처리");
-//		vo.setReceiptDate(null);
-//		vo.setWithdrawalDate(null);
-		
 		mybatis.update("WooriBankDAO.transfer",vo);
+		
 	}
+	
 
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

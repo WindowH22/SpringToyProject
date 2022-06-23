@@ -41,6 +41,7 @@
 	<tr>
 		<td bgcolor="orange" width="140">이체할 계좌 번호</td>
 		<td align="left"><input type="text" name="transferAcoount"></td>
+		<!-- 계좌번호가 맞는지 확인해야함 -->
 	</tr>
 	<tr>
 		<td colspan="2" align="center">

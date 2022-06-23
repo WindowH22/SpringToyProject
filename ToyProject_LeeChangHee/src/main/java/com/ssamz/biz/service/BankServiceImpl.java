@@ -19,7 +19,12 @@ public class BankServiceImpl implements BankService {
 	
 	@Override
 	public void transfer(BankVO vo) {
-		wooriBankDAO.transfer(vo);
+		if(vo.getBalance() >= vo.getAmount()) {
+			wooriBankDAO.transfer(vo);
+		}else {
+			System.out.println("계좌에 존재하는 금액보다 이체할 금액이 큽니다.");
+		}
+				
 	}
 
 

@@ -14,7 +14,14 @@
 
 	
 	<update id="transfer" >
-		update woori_bank set balance = balance - #{amount}, receipt_date = current_date, withdraw_date = current_date where account_number = #{accountNumber}
+		
+		
+		update woori_bank set 
+		balance = balance - #{amount}, 
+		receipt_date = current_date, 
+		withdraw_date = current_date 
+		where account_number = #{accountNumber}
+		
 	</update>
 
 	
