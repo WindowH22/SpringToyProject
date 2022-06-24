@@ -18,11 +18,11 @@
 <table width="600" border="1" cellpadding="0" cellspacing="0">
 	<tr>
 		<td bgcolor="orange" width="140">계좌번호</td>
-		<td align="left"><input type="hidden" name="accountNumber" value="${bank.accountNumber }">${bank.accountNumber }</td>
+		<td align="left"><input type="hidden" name="accountNumber" value="${bankWoori.accountNumber }">${bankWoori.accountNumber }</td>
 	</tr>
 	<tr>
 		<td bgcolor="orange" width="140">이체 가능금액</td>
-		<td align="left"><input type="hidden" name="balance" value="${bank.balance }">${bank.balance }원</td>
+		<td align="left"><input type="hidden" name="balance" value="${bankWoori.balance }">${bankWoori.balance }원</td>
 	</tr>
 	<tr>
 		<td bgcolor="orange" width="140">이체 금액</td>
@@ -40,7 +40,7 @@
 	</tr>
 	<tr>
 		<td bgcolor="orange" width="140">이체할 계좌 번호</td>
-		<td align="left"><input type="text" name="transferAcoount"></td>
+		<td align="left"><input type="text" name="transferAccount" ></td>
 		<!-- 계좌번호가 맞는지 확인해야함 -->
 	</tr>
 	<tr>

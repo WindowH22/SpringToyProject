@@ -39,4 +39,10 @@ public class BankServiceImpl implements BankService {
 		return KbStarBankDAO.getAccount(vo);
 	}
 
+	@Override
+	public void deposit(BankVO vo) {
+		KbStarBankDAO.deposit(vo);
+		
+	}
+
 }

@@ -12,19 +12,34 @@
 		<result property="withdrawalDate" column="WITHDRAW_DATE"/>
 	</resultMap>
 
-	
-	<update id="transfer">
-		update KBSTAR_BANK  set balance = balance - #{balance}, receipt_date = #{receiptDate}, withdraw_date = #{withdrawDate} where account_number = #{accountNumber}
+	<!--  출금  -->
+	<update id="transfer" >
+		update kbstar_bank set 
+		balance = balance - #{amount}, 
+		receipt_date = current_date, 
+		withdraw_date = current_date 
+		where account_number = #{accountNumber}
 	</update>
 
+	<!--  입금  -->	
+	<update id="deposit">
+		update kbstar_bank set 
+		balance = balance + #{amount}, 
+		receipt_date = current_date, 
+		withdraw_date = current_date 
+		where account_number = #{transferAccount}
+	</update>
+	
 	
 	<select id="getAccount" resultMap="bankResult">
 		<![CDATA[
 		select *
 		from KBSTAR_BANK 
-		where ACCOUNT_NUMBER  = #{accountNumber}
+		where account_number = #{transferAccount}
 		]]>
 	</select>
+	
+	
 	
 	
 	

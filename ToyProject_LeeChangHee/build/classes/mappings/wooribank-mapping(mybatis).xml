@@ -12,16 +12,20 @@
 		<result property="withdrawalDate" column="WITHDRAW_DATE"/>
 	</resultMap>
 
-	
+	<!--  출금  -->	
 	<update id="transfer" >
-		
-		
 		update woori_bank set 
 		balance = balance - #{amount}, 
-		receipt_date = current_date, 
 		withdraw_date = current_date 
 		where account_number = #{accountNumber}
-		
+	</update>
+	
+	<!--  입금  -->	
+	<update id="deposit">
+		update woori_bank set 
+		balance = balance + #{amount}, 
+		receipt_date = current_date, 
+		where account_number = #{accountNumber}
 	</update>
 
 	

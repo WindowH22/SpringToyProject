@@ -11,8 +11,11 @@ public interface BankService {
 	public BankVO getAccountKB(BankVO vo) ;
 		
 	
-
+	// 출금
 	public void transfer(BankVO vo);
 
+	
+	// 입금
+	public void deposit(BankVO vo);
 
 }

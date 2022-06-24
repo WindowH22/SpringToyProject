@@ -14,30 +14,60 @@
 <center>
 <h1>계좌 이체결과</h1>
 <br>
-<h3> 은행</h3>
+<h3>  우리은행</h3>
 <form action="getbalance.do" method="post">
 
 <table width="600" border="1" cellpadding="0" cellspacing="0">
 	<tr>
 		<td colspan="2" align="center">
-		${bank.name} 님의 계좌 현황 입니다.
+		${bankWoori.name} 님의 계좌 현황 입니다.
 		</td>
 	</tr>
 	<tr>
 		<td bgcolor="orange" width="140">계좌 번호</td>
-		<td align="left">${bank.accountNumber} </td>
+		<td align="left">${bankWoori.accountNumber} </td>
 	</tr>
 	<tr>
 		<td bgcolor="orange" width="140">보유 잔액</td>
-		<td align="left">${bank.balance }원</td>
+		<td align="left">${bankWoori.balance }원</td>
 	</tr>
 	<tr>
 		<td bgcolor="orange" width="140">마지막 출금날짜</td>
-		<td align="left">${bank.receiptDate }</td>
+		<td align="left">${bankWoori.receiptDate }</td>
 	</tr>
 	<tr>
 		<td bgcolor="orange" width="140">마지막입금날짜</td>
-		<td align="left">${bank.withdrawalDate }</td>
+		<td align="left">${bankWoori.withdrawalDate }</td>
+	</tr>
+
+</table>
+</form>
+<br>
+
+<h3>  KB국민은행</h3>
+<form action="getbalance.do" method="post">
+
+<table width="600" border="1" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="2" align="center">
+		${bankKb.name} 님의 계좌 현황 입니다.
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="orange" width="140">계좌 번호</td>
+		<td align="left">${bankKb.accountNumber} </td>
+	</tr>
+	<tr>
+		<td bgcolor="orange" width="140">보유 잔액</td>
+		<td align="left">${bankKb.balance }원</td>
+	</tr>
+	<tr>
+		<td bgcolor="orange" width="140">마지막 출금날짜</td>
+		<td align="left">${bankKb.receiptDate }</td>
+	</tr>
+	<tr>
+		<td bgcolor="orange" width="140">마지막입금날짜</td>
+		<td align="left">${bankKb.withdrawalDate }</td>
 	</tr>
 
 </table>

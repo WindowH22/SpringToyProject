@@ -20,9 +20,10 @@ public class BankController {
 		return "getBalance";
 	}
 
-	// 잔액 조회
+	// 계좌 조회
 	@RequestMapping("/getbalance.do")
 	public String getBalance(BankVO vo, Model model) {
+			
 		model.addAttribute("bank", bankService.getAccountWoori(vo));
 		System.out.println(bankService.getAccountWoori(vo).toString());
 		return "getBalance";
@@ -30,28 +31,28 @@ public class BankController {
 
 	@RequestMapping("/transfer.do")
 	public String transfer(BankVO vo, Model model) {
-		model.addAttribute("bank", bankService.getAccountWoori(vo));
-		System.out.println(bankService.getAccountWoori(vo).toString());
+		//woori은행데이터 가져오기
+		model.addAttribute("bankWoori", bankService.getAccountWoori(vo));
 		return "transfer";
 	}
 
 	// 계좌이체
 	@RequestMapping("/transferResult.do")
 	public String transferResult(BankVO vo, Model model) {
-
+		
 		if (vo.getBankName().equals("KB")) {
-			System.out.println(bankService.getAccountWoori(vo).toString());
-			// 이체할 금액이 계좌에 있는 금액보다 작을시
-
-			bankService.transfer(vo);
-			model.addAttribute("bank", bankService.getAccountWoori(vo));
-			return "transferResult";
-
+			// KB계좌번호와 입력계좌번호 비교
+			if(vo.getTransferAccount().equals(bankService.getAccountKB(vo).getAccountNumber())) {
+				bankService.transfer(vo);
+				bankService.deposit(vo);
+				model.addAttribute("bankWoori", bankService.getAccountWoori(vo));
+				model.addAttribute("bankKb", bankService.getAccountKB(vo));
+				return "transferResult";	
+			}
+			model.addAttribute("bankWoori", bankService.getAccountWoori(vo));
+			return "transfer";
 		} else {
 			return "forward:/index.jsp";
-
 		}
-
 	}
-
 }
